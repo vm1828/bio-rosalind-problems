@@ -6,18 +6,19 @@ import sys
 
 def create_template_dir(id, title=False):
     """Create problem dir template"""
+    directory = os.path.join('problems', id)
 
-    if os.path.exists(id):
-        print(f"Directory '{id}' already exists.")
+    if os.path.exists(directory):
+        print(f"Directory '{directory}' already exists.")
         return
 
     # Create dir
-    os.makedirs(id)
+    os.makedirs(directory)
 
     # Create files
-    init_file = os.path.join(id, '__init__.py')
-    main_file = os.path.join(id, f'{id}.py')
-    test_file = os.path.join(id, f'test_{id}.py')
+    init_file = os.path.join(directory, '__init__.py')
+    main_file = os.path.join(directory, f'{id}.py')
+    test_file = os.path.join(directory, f'test_{id}.py')
     for file_path in [init_file, main_file, test_file]:
         open(file_path, 'a').close()
 
@@ -27,7 +28,7 @@ def create_template_dir(id, title=False):
             f.write(f'# {title}')
 
     print(
-        f"Template directory'{id}' with files '__init__.py', '{id}.py', and 'test_{id}.py' created.")
+        f"Template directory'{directory}' with files '__init__.py', '{id}.py', and 'test_{id}.py' created.")
 
 
 # if __name__ == "__main__":
@@ -41,10 +42,11 @@ def create_template_dir(id, title=False):
 
 # if __name__ == "__main__":
 #     # batch create problem template directories
-#     problems = """FIB Rabbits and Recurrence Relations
-#     GC Computing GC Content
-#     HAMM Counting Point Mutations
-#     IPRB Mendel's First Law"""
+#     problems = """DNA Counting DNA Nucleotides
+#     RNA Transcribing DNA into RNA
+#     REVC Complementing a Strand of DNA
+#     FIB Rabbits and Recurrence Relations
+#     GC Computing GC Content"""
 
 #     # Parse the data into tuples
 #     problems = [
