@@ -1,4 +1,4 @@
-from REVC.REVC import reverse_complement
+from problems.REVC.REVC import reverse_complement
 
 test_input = "AAAACCCGGT"
 test_output = "ACCGGGTTTT"

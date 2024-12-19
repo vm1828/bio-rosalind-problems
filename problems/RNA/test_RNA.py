@@ -1,4 +1,4 @@
-from RNA.RNA import dna_to_rna
+from problems.RNA.RNA import dna_to_rna
 
 test_input = "GATGGAACTTGACTACGTAAATT"
 test_output = "GAUGGAACUUGACUACGUAAAUU"

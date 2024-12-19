@@ -1,4 +1,4 @@
-from DNA.DNA import count_dna_nucleobases
+from problems.DNA.DNA import count_dna_nucleobases
 
 test_input = "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC"
 test_output = (20, 12, 17, 21)
