@@ -1,2 +1,4 @@
 biopython==1.84
 pandas==2.2.3
+requests==2.32.
+pytest==8.3.4
