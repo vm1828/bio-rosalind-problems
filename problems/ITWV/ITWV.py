@@ -1,1 +1,14 @@
-# Finding Disjoint Motifs in a Gene
+"""Finding Disjoint Motifs in a Gene"""
+
+from shared.constants import PROBLEM, SOLUTION
+    
+def itwv_soln():
+    ...
+
+if __name__ == '__main__':
+    with open(PROBLEM) as f:
+        s = f.read()
+    solution = itwv_soln(s)
+    with open(SOLUTION, 'w') as f:
+        f.write(solution)
+

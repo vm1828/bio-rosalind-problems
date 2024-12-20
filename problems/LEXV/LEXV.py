@@ -1,1 +1,14 @@
-# Ordering Strings of Varying Length Lexicographically
+"""Ordering Strings of Varying Length Lexicographically"""
+
+from shared.constants import PROBLEM, SOLUTION
+    
+def lexv_soln():
+    ...
+
+if __name__ == '__main__':
+    with open(PROBLEM) as f:
+        s = f.read()
+    solution = lexv_soln(s)
+    with open(SOLUTION, 'w') as f:
+        f.write(solution)
+
