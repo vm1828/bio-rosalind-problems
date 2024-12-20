@@ -1,8 +1,17 @@
 from problems.GC.GC import gc_soln
+from shared.testing_utils import run_with_tmp_file
 
-test_input = ""
-test_output = ""
+test_input = """>Rosalind_6404
+CCTGCGGAAGATCGGCACTAGAATAGCCAGAACCGTTTCTCTGAGGCTTCCGGCCTTCCC
+TCCCACTAATAATTCTGAGG
+>Rosalind_5959
+CCATCGGTAGCGCATCCTTAGTCCAATTAAGTCCCTATCCAGGCGCTCCGCCGAAGGTCT
+ATATCCATTTGTCAGCAGACACGC
+>Rosalind_0808
+CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGAC
+TGGGAACCTGCGGGCAGTAGGTGGAAT"""
+test_output = ('Rosalind_0808', '60.919540')
 
-# def test_gc_soln():
-#     assert gc_soln(test_input) == test_output
 
+def test_gc_soln():
+    assert run_with_tmp_file(gc_soln, test_input) == test_output

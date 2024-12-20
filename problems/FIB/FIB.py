@@ -27,6 +27,6 @@ if __name__ == '__main__':
     with open(PROBLEM) as f:
         n, k = f.readline().strip().split(' ')
         n, k = int(n), int(k)
-    solution = fib_soln(n, k)
+    solution = str(fib_soln(n, k))
     with open(SOLUTION, 'w') as f:
         f.write(solution)
