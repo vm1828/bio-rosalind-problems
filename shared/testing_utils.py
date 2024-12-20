@@ -1,30 +1,26 @@
+import os
 import time
 
 from typing import Callable, Any
-from tempfile import NamedTemporaryFile
+from tempfile import TemporaryDirectory
 
 
-def test_solution(func: Callable, given: str, expected: Any, *args) -> None:
+def run_with_tmp_file(func: Callable, s: str) -> Any:
     """
-    Generates tmp file with test input, 
-    then the file is used as an argument for the tested function.
+    Creates tmp file with test input and passes it to the tested function.
 
     Args:
-        func (Callable): function to test
-        given (str): test input
-        expected (Any): test output
-
-    Raises:
-        Exception: expected output, actual output
+        func (Callable): Function to test.
+        s (str): Test input to write to the file.
     """
-    with NamedTemporaryFile() as f:
-        f.write(given)
-        actual = func(f.name, *args)
-        if actual == expected:
-            print("Test passed!")
-        else:
-            raise Exception(
-                f"\nExpected output: \n{repr(expected)}\nActual output: \n{repr(actual)}")
+
+    with TemporaryDirectory() as tmp_dir:
+        tmp_file = os.path.join(tmp_dir, "tmp.txt")
+        with open(tmp_file, 'w') as f:
+            f.write(s)
+        result = func(tmp_file)
+
+    return result
 
 
 def timeit(n=1):
