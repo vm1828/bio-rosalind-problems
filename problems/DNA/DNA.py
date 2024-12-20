@@ -1,9 +1,9 @@
-# Counting DNA Nucleotides
+"""Counting DNA Nucleotides"""
 
 from shared.constants import PROBLEM, SOLUTION
 
 
-def count_dna_nucleobases(s: str) -> tuple[int]:
+def dna_soln(s: str) -> tuple[int]:
     """Count 
 
     Args:
@@ -18,6 +18,6 @@ def count_dna_nucleobases(s: str) -> tuple[int]:
 if __name__ == '__main__':
     with open(PROBLEM) as f:
         s = f.read()
-    solution = ' '.join([str(i) for i in count_dna_nucleobases(s)])
+    solution = ' '.join([str(i) for i in dna_soln(s)])
     with open(SOLUTION, 'w') as f:
         f.write(solution)

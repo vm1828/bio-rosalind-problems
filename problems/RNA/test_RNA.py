@@ -1,8 +1,8 @@
-from problems.RNA.RNA import dna_to_rna
+from problems.RNA.RNA import rna_soln
 
 test_input = "GATGGAACTTGACTACGTAAATT"
 test_output = "GAUGGAACUUGACUACGUAAAUU"
 
 
-def test_dna_to_rna():
-    assert dna_to_rna(test_input) == test_output
+def test_rna_soln():
+    assert rna_soln(test_input) == test_output

@@ -1,4 +1,15 @@
-# Rabbits and Recurrence Relations
+"""Rabbits and Recurrence Relations"""
 
-def func(asdf):
-    pass
+from shared.constants import PROBLEM, SOLUTION
+
+
+def fib_soln():
+    ...
+
+
+if __name__ == '__main__':
+    with open(PROBLEM) as f:
+        s = f.read()
+    solution = fib_soln(s)
+    with open(SOLUTION, 'w') as f:
+        f.write(solution)

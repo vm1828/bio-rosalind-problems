@@ -1,8 +1,8 @@
-from problems.REVC.REVC import reverse_complement
+from problems.REVC.REVC import revc_soln
 
 test_input = "AAAACCCGGT"
 test_output = "ACCGGGTTTT"
 
 
-def test_reverse_complement():
-    assert reverse_complement(test_input) == test_output
+def test_revc_soln():
+    assert revc_soln(test_input) == test_output

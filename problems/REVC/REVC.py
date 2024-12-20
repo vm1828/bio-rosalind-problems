@@ -1,9 +1,9 @@
-# Complementing a Strand of DNA
+"""Complementing a Strand of DNA"""
 
 from shared.constants import PROBLEM, SOLUTION
 
 
-def reverse_complement(s: str) -> str:
+def revc_soln(s: str) -> str:
     """Generate reverse complement of a DNA strand
 
     Args:
@@ -15,17 +15,17 @@ def reverse_complement(s: str) -> str:
     return s[::-1].translate(str.maketrans('ACGT', 'TGCA'))
 
 
-# def reverse_complement(s: str) -> str:
+# def revc_soln(s: str) -> str:
 #     complements = {'A': 'T', 'G': 'C', 'C': 'G', 'T': 'A'}
 #     return ''.join(complements[i] for i in reversed(s) if i in complements)
 
 
-# def reverse_complement(s: str) -> str:
+# def revc_soln(s: str) -> str:
 #     return s.replace('A', 't').replace('T', 'a').replace('C', 'g').replace('G', 'c').upper()[::-1]
 
 if __name__ == '__main__':
     with open(PROBLEM) as f:
         s = f.read()
-    solution = reverse_complement(s)
+    solution = revc_soln(s)
     with open(SOLUTION, 'w') as f:
         f.write(solution)

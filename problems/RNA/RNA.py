@@ -1,9 +1,9 @@
-# Transcribing DNA into RNA
+"""Transcribing DNA into RNA"""
 
 from shared.constants import PROBLEM, SOLUTION
 
 
-def dna_to_rna(s: str) -> str:
+def rna_soln(s: str) -> str:
     """Transcribe DNA into RNA
 
     Args:
@@ -15,7 +15,7 @@ def dna_to_rna(s: str) -> str:
     return s.replace('T', 'U')
 
 
-# def dna_to_rna(s: str) -> str:
+# def rna_soln(s: str) -> str:
 #     table = str.maketrans({'T': 'U'})
 #     return s.translate(table)
 
@@ -23,6 +23,6 @@ def dna_to_rna(s: str) -> str:
 if __name__ == '__main__':
     with open(PROBLEM) as f:
         s = f.read()
-    solution = dna_to_rna(s)
+    solution = rna_soln(s)
     with open(SOLUTION, 'w') as f:
         f.write(solution)
