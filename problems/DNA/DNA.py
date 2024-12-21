@@ -1,6 +1,5 @@
 """Counting DNA Nucleotides"""
 
-from shared.constants import PROBLEM, SOLUTION
 from shared.solution import Solution
 
 
@@ -24,4 +23,4 @@ class DNASolution(Solution):
 
 
 if __name__ == '__main__':
-    ...
+    DNASolution()
