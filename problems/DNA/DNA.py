@@ -1,23 +1,27 @@
 """Counting DNA Nucleotides"""
 
 from shared.constants import PROBLEM, SOLUTION
+from shared.solution import Solution
 
 
-def dna_soln(s: str) -> tuple[int]:
-    """Count 
+class DNASolution(Solution):
 
-    Args:
-        s (str): DNA sequence
+    @staticmethod
+    def algorithm(s: str) -> tuple[int]:
+        """Count DNA nucleotides
 
-    Returns:
-        tuple[int]: counts of each nucleobase
-    """
-    return (s.count('A'), s.count('C'), s.count('G'), s.count('T'))
+        Args:
+            s (str): DNA sequence
+
+        Returns:
+            tuple[int]: counts of each nucleobase
+        """
+        return (s.count('A'), s.count('C'), s.count('G'), s.count('T'))
+
+    def _solve(self) -> str:
+        result = self.algorithm(self._parsed_data)
+        return ' '.join([str(i) for i in result])
 
 
 if __name__ == '__main__':
-    with open(PROBLEM) as f:
-        s = f.read()
-    solution = ' '.join([str(i) for i in dna_soln(s)])
-    with open(SOLUTION, 'w') as f:
-        f.write(solution)
+    ...
