@@ -22,38 +22,48 @@ def create_template_dir(id, title=False):
     for file_path in [init_file, main_file, test_file]:
         open(file_path, 'a').close()
 
-    # Write title to the main file
-    func_name = f'{id.lower()}_soln'
-    func_code = f"""\"""{title}\"""
+    # Write templates
+    class_name = f'{id}Solution'
+    MAIN_CODE = f"""\"""{title}\"""
 
-from shared.constants import PROBLEM, SOLUTION
-    
-def {func_name}():
-    ...
+from shared.solution import Solution
+
+
+class {class_name}(Solution):
+
+    @staticmethod
+    def algorithm(s: str):
+        \"""...
+
+        Args:
+            s (str): ...
+
+        Returns:
+            ...: ...
+        \"""
+        ...
+
 
 if __name__ == '__main__':
-    with open(PROBLEM) as f:
-        s = f.read()
-    solution = {func_name}(s)
-    with open(SOLUTION, 'w') as f:
-        f.write(solution)
+    {class_name}()
 
 """
 
-    test_code = f"""from problems.{id}.{id} import {func_name}
+    TEST_CODE = f"""from problems.{id}.{id} import {class_name}
 
 test_input = ""
 test_output = ""
 
-# def test_{func_name}():
-#     assert {func_name}(test_input) == test_output
+# def test_{class_name}():
+#     assert {class_name}().test_solution(test_input, test_output)
+
 
 """
     if title:
         with open(main_file, 'w') as f:
-            f.write(func_code)
+            f.write(MAIN_CODE)
         with open(test_file, 'w') as f:
-            f.write(test_code)
+            f.write(TEST_CODE)
 
     print(
         f"Template directory'{directory}' with files '__init__.py', '{id}.py', and 'test_{id}.py' created.")
@@ -182,5 +192,5 @@ RSUB Identifying Reversing Substitutions"""
     ]
 
     # Print the result
-    for problem in problems:
+    for problem in problems[:10]:
         create_template_dir(*problem)

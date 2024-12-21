@@ -1,6 +1,5 @@
 """Rosalind solution module"""
 
-
 import os
 from tempfile import TemporaryDirectory
 from abc import ABC, abstractmethod
