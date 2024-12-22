@@ -1,8 +1,10 @@
-from problems.PROT.PROT import prot_soln
+from problems.PROT.PROT import PROTSolution
+from shared.testing_utils import solution_output
+
 
 test_input = "AUGGCCAUGGCGCCCAGAACUGAGAUCAAUAGUACCCGUAUUAACGGGUGA"
-test_output = "MAMAPRTEINSTRING"
+expected_output = "MAMAPRTEINSTRING"
 
 
-def test_prot_soln():
-    assert prot_soln(test_input) == test_output
+def test_PROTSolution():
+    assert solution_output(PROTSolution, test_input) == expected_output

@@ -1,18 +1,21 @@
 """Complementing a Strand of DNA"""
 
-from shared.constants import PROBLEM, SOLUTION
+from shared.solution import Solution
 
 
-def revc_soln(s: str) -> str:
-    """Generate reverse complement of a DNA strand
+class REVCSolution(Solution):
 
-    Args:
-        s (str): DNA sequence
+    @staticmethod
+    def algorithm(s: str) -> str:
+        """Generates the reverse complement of a DNA sequence.
 
-    Returns:
-        str: reverse complement of a DNA sequence
-    """
-    return s[::-1].translate(str.maketrans('ACGT', 'TGCA'))
+        Args:
+            s (str): DNA sequence.
+
+        Returns:
+            str: The reverse complement of the input DNA sequence.
+        """
+        return s[::-1].translate(str.maketrans('ACGT', 'TGCA'))
 
 
 # def revc_soln(s: str) -> str:
@@ -24,8 +27,4 @@ def revc_soln(s: str) -> str:
 #     return s.replace('A', 't').replace('T', 'a').replace('C', 'g').replace('G', 'c').upper()[::-1]
 
 if __name__ == '__main__':
-    with open(PROBLEM) as f:
-        s = f.read()
-    solution = revc_soln(s)
-    with open(SOLUTION, 'w') as f:
-        f.write(solution)
+    REVCSolution()

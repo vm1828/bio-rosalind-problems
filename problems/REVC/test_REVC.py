@@ -1,8 +1,10 @@
-from problems.REVC.REVC import revc_soln
+from problems.REVC.REVC import REVCSolution
+from shared.testing_utils import solution_output
+
 
 test_input = "AAAACCCGGT"
-test_output = "ACCGGGTTTT"
+expected_output = "ACCGGGTTTT"
 
 
-def test_revc_soln():
-    assert revc_soln(test_input) == test_output
+def test_REVCSolution():
+    assert solution_output(REVCSolution, test_input) == expected_output

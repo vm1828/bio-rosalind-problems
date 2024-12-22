@@ -1,8 +1,9 @@
-from problems.FIB.FIB import fib_soln
+from problems.FIB.FIB import FIBSolution
+from shared.testing_utils import solution_output
 
-test_input = (5, 3)
-test_output = 19
+test_input = "5 3"
+expected_output = "19"
 
 
-def test_fib_soln():
-    assert fib_soln(*test_input) == test_output
+def test_FIBSolution():
+    assert solution_output(FIBSolution, test_input) == expected_output

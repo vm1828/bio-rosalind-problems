@@ -1,8 +1,10 @@
-from problems.RNA.RNA import rna_soln
+from problems.RNA.RNA import RNASolution
+from shared.testing_utils import solution_output
+
 
 test_input = "GATGGAACTTGACTACGTAAATT"
-test_output = "GAUGGAACUUGACUACGUAAAUU"
+expected_output = "GAUGGAACUUGACUACGUAAAUU"
 
 
-def test_rna_soln():
-    assert rna_soln(test_input) == test_output
+def test_RNASolution():
+    assert solution_output(RNASolution, test_input) == expected_output

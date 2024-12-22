@@ -2,21 +2,26 @@
 
 from shared.constants import PROBLEM, SOLUTION
 from Bio.Seq import Seq
+
+from shared.solution import Solution
 # from Bio.Data import CodonTable
 
 
-def prot_soln(s: str) -> str:
-    """Translates an RNA sequence to a protein sequence
+class PROTSolution(Solution):
 
-    Args:
-        s (str): RNA sequence
+    @staticmethod
+    def algorithm(s: str) -> str:
+        """Translates an RNA sequence into its corresponding protein sequence.
 
-    Returns:
-        str: Protein sequence
-    """
-    rna_seq = Seq(s)
-    prot_seq = rna_seq.translate(to_stop=True)
-    return prot_seq
+        Args:
+            s (str): The RNA sequence to be translated.
+
+        Returns:
+            str: The resulting protein sequence.
+        """
+        rna_seq = Seq(s)
+        prot_seq = rna_seq.translate(to_stop=True)
+        return str(prot_seq)
 
 
 # def prot_soln(s: str) -> str:
@@ -32,8 +37,4 @@ def prot_soln(s: str) -> str:
 
 
 if __name__ == '__main__':
-    with open(PROBLEM) as f:
-        s = f.read().strip()
-    solution = prot_soln(s)
-    with open(SOLUTION, 'w') as f:
-        f.write(solution)
+    PROTSolution()

@@ -1,26 +1,56 @@
 import os
 import time
 
-from typing import Callable, Any
+from typing import Callable
 from tempfile import TemporaryDirectory
 
+from shared.solution import Solution
 
-def run_with_tmp_file(func: Callable, s: str) -> Any:
-    """
-    Creates tmp file with test input and passes it to the tested function.
+
+def solution_output(cls: Solution, test_input: str) -> str:
+    """Creates tmp file with test input and uses it to evaluate the solution.
 
     Args:
-        func (Callable): Function to test.
-        s (str): Test input to write to the file.
+        cls (Type[Solution]): The class being tested, which implements the solution logic.
+        test_input (str): Input data to be tested.
+
+    Returns:
+        actual_output (str): Actual test output
     """
-
     with TemporaryDirectory() as tmp_dir:
-        tmp_file = os.path.join(tmp_dir, "tmp.txt")
-        with open(tmp_file, 'w') as f:
-            f.write(s)
-        result = func(tmp_file)
+        tmp_input_file = os.path.join(tmp_dir, "tmp_problem.txt")
+        tmp_output_file = os.path.join(tmp_dir, "tmp_output.txt")
 
-    return result
+        # write test input into a file
+        with open(tmp_input_file, 'w') as f:
+            f.write(test_input)
+
+        # run code
+        cls(tmp_input_file, tmp_output_file)
+
+        # read output
+        with open(tmp_output_file) as f:
+            actual_output = f.read()
+
+    return actual_output
+
+
+# def run_with_tmp_file(func: Callable, s: str) -> Any:
+#     """
+#     Creates tmp file with test input and passes it to the tested function.
+
+#     Args:
+#         func (Callable): Function to test.
+#         s (str): Test input to write to the file.
+#     """
+
+#     with TemporaryDirectory() as tmp_dir:
+#         tmp_file = os.path.join(tmp_dir, "tmp.txt")
+#         with open(tmp_file, 'w') as f:
+#             f.write(s)
+#         result = func(tmp_file)
+
+#     return result
 
 
 def timeit(n=1):
@@ -46,7 +76,7 @@ def timeit(n=1):
 
 
 @timeit(n=100)
-def test_performance(func: Callable, test_file: str) -> None:
+def assess_performance(func: Callable, test_file: str) -> None:
     """_summary_
 
     Args:

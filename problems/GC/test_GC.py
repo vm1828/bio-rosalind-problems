@@ -1,5 +1,5 @@
-from problems.GC.GC import gc_soln
-from shared.testing_utils import run_with_tmp_file
+from problems.GC.GC import GCSolution
+from shared.testing_utils import solution_output
 
 test_input = """>Rosalind_6404
 CCTGCGGAAGATCGGCACTAGAATAGCCAGAACCGTTTCTCTGAGGCTTCCGGCCTTCCC
@@ -10,8 +10,9 @@ ATATCCATTTGTCAGCAGACACGC
 >Rosalind_0808
 CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGAC
 TGGGAACCTGCGGGCAGTAGGTGGAAT"""
-test_output = ('Rosalind_0808', '60.919540')
+expected_output = """Rosalind_0808
+60.919540"""
 
 
-def test_gc_soln():
-    assert run_with_tmp_file(gc_soln, test_input) == test_output
+def test_GCSolution():
+    assert solution_output(GCSolution, test_input) == expected_output

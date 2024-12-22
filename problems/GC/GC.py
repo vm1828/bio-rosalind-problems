@@ -1,24 +1,43 @@
 """Computing GC Content"""
 
-from shared.constants import PROBLEM, SOLUTION
+from shared.solution import Solution
 
 
-def gc_soln(filename: str) -> tuple[str]:
-    with open(filename) as f:
-        gc = {}
-        current = None
-        # get records
-        for line in f.readlines():
-            if line.startswith('>'):
-                current = line[1:].rstrip()
-                gc[current] = ''
-            else:
-                gc[current] += line.rstrip()
-    # count percents
-    for k, v in gc.items():
-        gc[k] = (v.count('C')+v.count('G'))/len(v)*100
-    id = max(gc, key=gc.get)
-    return (id, f'{gc[id]:.6f}')
+class GCSolution(Solution):
+
+    @staticmethod
+    def algorithm(gc: dict[str, str]) -> tuple[str]:
+        """
+        Computes GC content for each DNA sequence and returns the ID of the sequence 
+        with the highest GC content and its percentage.
+
+        Args:
+            gc (dict[str, str]): Dictionary of sequence IDs and DNA sequences.
+
+        Returns:
+            tuple[str, str]: Sequence ID with the highest GC content and its percentage.
+        """
+        for k, v in gc.items():
+            gc[k] = (v.count('C')+v.count('G'))/len(v)*100
+        id = max(gc, key=gc.get)
+        return (id, f'{gc[id]:.6f}')
+
+    def _parse(self) -> dict[str, str]:
+        with open(self._input_file) as f:
+            data = {}
+            current = None
+            # get records
+            for line in f.readlines():
+                if line.startswith('>'):
+                    current = line[1:].rstrip()
+                    data[current] = ''
+                else:
+                    data[current] += line.rstrip()
+        return data
+
+    def _solve(self) -> str:
+        id, p = self.algorithm(self._parsed_data)
+        return f'{id}\n{p}'
 
 # def gc_soln(filename: str) -> tuple[str]:
 #   with open(filename) as f:
@@ -40,6 +59,4 @@ def gc_soln(filename: str) -> tuple[str]:
 
 
 if __name__ == '__main__':
-    solution = ' '.join(gc_soln(PROBLEM))
-    with open(SOLUTION, 'w') as f:
-        f.write(solution)
+    GCSolution()

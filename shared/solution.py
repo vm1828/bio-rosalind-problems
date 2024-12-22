@@ -1,7 +1,5 @@
 """Rosalind solution module"""
 
-import os
-from tempfile import TemporaryDirectory
 from abc import ABC, abstractmethod
 from typing import Any
 
@@ -18,6 +16,7 @@ class Solution(ABC):
         Args:
             input_file (str): Path to the input file containing the data for processing.
             output_file (str): Path to the output file where the solution will be written.
+            testing (bool): If True, skips processing steps to facilitate testing. 
 
         Attributes:
             _input_file (str): Path to the input file.
@@ -51,31 +50,3 @@ class Solution(ABC):
     def algorithm() -> Any:
         """Abstract static method to be implemented by subclasses and reusable upon import."""
         pass
-
-    @classmethod
-    def test_solution(cls, test_input, expected_output) -> bool:
-        """Creates tmp file with test input and uses it to test the solution.
-
-        Args:
-            test_input (str): Test input
-            test_input (str): Test output
-
-        Returns:
-            result (bool): Testing result (True of False)
-        """
-        with TemporaryDirectory() as tmp_dir:
-            tmp_input_file = os.path.join(tmp_dir, "tmp_problem.txt")
-            tmp_output_file = os.path.join(tmp_dir, "tmp_output.txt")
-
-            # write test input into a file
-            with open(tmp_input_file, 'w') as f:
-                f.write(test_input)
-
-            # run code
-            cls(tmp_input_file, tmp_output_file)
-
-            # read output
-            with open(tmp_output_file) as f:
-                actual_output = f.read()
-
-        return actual_output == expected_output

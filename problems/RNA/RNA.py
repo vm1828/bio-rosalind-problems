@@ -1,18 +1,22 @@
 """Transcribing DNA into RNA"""
 
-from shared.constants import PROBLEM, SOLUTION
+from shared.solution import Solution
 
 
-def rna_soln(s: str) -> str:
-    """Transcribe DNA into RNA
+class RNASolution(Solution):
 
-    Args:
-        s (str): DNA sequence
+    @staticmethod
+    def algorithm(s: str) -> str:
+        """
+        Transcribes a DNA sequence into an RNA sequence by replacing thymine (T) with uracil (U).
 
-    Returns:
-        str: RNA sequence
-    """
-    return s.replace('T', 'U')
+        Args:
+            s (str): The DNA sequence to be transcribed.
+
+        Returns:
+            str: The corresponding RNA sequence.
+        """
+        return s.replace('T', 'U')
 
 
 # def rna_soln(s: str) -> str:
@@ -21,8 +25,4 @@ def rna_soln(s: str) -> str:
 
 
 if __name__ == '__main__':
-    with open(PROBLEM) as f:
-        s = f.read()
-    solution = rna_soln(s)
-    with open(SOLUTION, 'w') as f:
-        f.write(solution)
+    RNASolution()
