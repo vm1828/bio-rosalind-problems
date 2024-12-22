@@ -28,13 +28,13 @@ class SUBSSolution(Solution):
             i = s.find(substr, i+1)
         return matches
 
-    def _parse(self) -> tuple[str]:
+    def _parse(self) -> tuple[str, str]:
         with open(self._input_file) as f:
             s = f.readline().rstrip()
             substr = f.readline().rstrip()
         return s, substr
 
-    def _solve(self):
+    def _solve(self) -> str:
         matches = self.algorithm(*self._parsed_data)
         return ' '.join([str(i) for i in matches])
 
@@ -57,16 +57,6 @@ class SUBSSolution(Solution):
 #     s = f.readline().rstrip()
 #     m = f.readline().rstrip()
 #   return [i+1 for i in naiveSearch(s, m)]
-
-# def find_dna_motif_naive_2(filename: str) -> list[int]:
-#   with open(filename) as f:
-#     s = f.readline().rstrip()
-#     m = f.readline().rstrip()
-#   matches = []
-#   for i in range(len(s)):
-#     if s[i:].startswith(m):
-#       matches.append(i+1)
-#   return matches
 
 
 if __name__ == '__main__':

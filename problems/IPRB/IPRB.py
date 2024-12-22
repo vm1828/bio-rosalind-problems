@@ -36,7 +36,7 @@ class IPRBSolution(Solution):
 
         return round(favorable_pairs/total_pairs, 5)
 
-    def _parse(self) -> tuple[int]:
+    def _parse(self) -> tuple[int, int, int]:
         with open(self._input_file) as f:
             AA, Aa, aa = (int(i) for i in f.read().strip().split())
         return AA, Aa, aa

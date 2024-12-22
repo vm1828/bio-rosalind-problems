@@ -6,7 +6,7 @@ from shared.solution import Solution
 class GCSolution(Solution):
 
     @staticmethod
-    def algorithm(gc: dict[str, str]) -> tuple[str]:
+    def algorithm(gc: dict[str, str]) -> tuple[str, str]:
         """
         Computes GC content for each DNA sequence and returns the ID of the sequence 
         with the highest GC content and its percentage.

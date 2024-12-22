@@ -1,6 +1,7 @@
 """Consensus and Profile"""
 
 from collections import defaultdict
+from typing import Iterable
 
 import numpy as np
 import pandas as pd
@@ -32,12 +33,12 @@ class CONSSolution(Solution):
         return consensus
 
     @staticmethod
-    def profile_matrix(records: iter[SeqRecord]) -> pd.DataFrame:
+    def profile_matrix(records: Iterable[SeqRecord]) -> pd.DataFrame:
         """
         Creates a profile matrix based on multiple sequence alignments.
 
         Args:
-            records (iter[SeqRecord]): An iterator over SeqRecord objects, where each
+            records (Iterable[SeqRecord]): An iterator over SeqRecord objects, where each
                                     contains a sequence (string) to be used in the profile.
 
         Returns:
@@ -58,12 +59,12 @@ class CONSSolution(Solution):
                     lambda: np.zeros(sequence_length, dtype=int))
             if len(sequence) != sequence_length:
                 raise ValueError('All sequences should have the same length')
-            for i in range(len(sequence)):
-                profile[sequence[i]][i] += 1
+            for i, v in enumerate(sequence):
+                profile[v][i] += 1
         profile = pd.DataFrame.from_dict(profile)
         return profile
 
-    def _parse(self) -> iter[SeqRecord]:
+    def _parse(self) -> Iterable[SeqRecord]:
         records = SeqIO.parse(self._input_file, 'fasta')
         return records
 

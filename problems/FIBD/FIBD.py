@@ -26,7 +26,7 @@ class FIBDSolution(Solution):
             newborn = new_newborn
         return newborn + mature
 
-    def _parse(self) -> tuple[int]:
+    def _parse(self) -> tuple[int, int]:
         with open(self._input_file) as f:
             n, m = f.readline().strip().split(' ')
         return int(n), int(m)

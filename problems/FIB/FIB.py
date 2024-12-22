@@ -25,7 +25,7 @@ class FIBSolution(Solution):
             print(f'Month {i}: {b} pairs')
         return b
 
-    def _parse(self) -> tuple[int]:
+    def _parse(self) -> tuple[int, int]:
         with open(self._input_file) as f:
             n, k = f.readline().strip().split(' ')
             n, k = int(n), int(k)
