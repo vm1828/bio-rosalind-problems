@@ -1,4 +1,4 @@
-"""Data models"""
+"""Models for sequencing data"""
 
 from dataclasses import dataclass
 
