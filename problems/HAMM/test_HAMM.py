@@ -4,7 +4,7 @@ from shared.testing_utils import solution_output
 test_input = """GAGCCTACTAACGGGAT
 CATCGTAATGACGGCCT
 """
-expected_output = "7"
+expected_output = "7\n"
 
 
 def test_HAMMSolution():

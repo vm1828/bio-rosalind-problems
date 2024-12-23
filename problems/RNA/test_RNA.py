@@ -3,7 +3,7 @@ from shared.testing_utils import solution_output
 
 
 test_input = "GATGGAACTTGACTACGTAAATT"
-expected_output = "GAUGGAACUUGACUACGUAAAUU"
+expected_output = "GAUGGAACUUGACUACGUAAAUU\n"
 
 
 def test_RNASolution():

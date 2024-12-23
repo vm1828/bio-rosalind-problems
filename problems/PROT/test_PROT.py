@@ -3,7 +3,7 @@ from shared.testing_utils import solution_output
 
 
 test_input = "AUGGCCAUGGCGCCCAGAACUGAGAUCAAUAGUACCCGUAUUAACGGGUGA"
-expected_output = "MAMAPRTEINSTRING"
+expected_output = "MAMAPRTEINSTRING\n"
 
 
 def test_PROTSolution():

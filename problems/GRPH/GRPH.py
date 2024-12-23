@@ -55,7 +55,7 @@ class GRPHSolution(Solution):
         pairs = self.algorithm(self._parsed_data)
         for pair in pairs:
             result += f'{pair[0]} {pair[1]}\n'
-        return result
+        return result.rstrip()
 
 
 if __name__ == '__main__':

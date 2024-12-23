@@ -3,7 +3,7 @@ from shared.testing_utils import solution_output
 
 
 test_input = "6 3"
-expected_output = "4"
+expected_output = "4\n"
 
 
 def test_FIBDSolution():

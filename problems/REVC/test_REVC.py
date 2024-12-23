@@ -3,7 +3,7 @@ from shared.testing_utils import solution_output
 
 
 test_input = "AAAACCCGGT"
-expected_output = "ACCGGGTTTT"
+expected_output = "ACCGGGTTTT\n"
 
 
 def test_REVCSolution():

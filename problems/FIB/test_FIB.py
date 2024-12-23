@@ -2,7 +2,7 @@ from problems.FIB.FIB import FIBSolution
 from shared.testing_utils import solution_output
 
 test_input = "5 3"
-expected_output = "19"
+expected_output = "19\n"
 
 
 def test_FIBSolution():

@@ -20,7 +20,7 @@ expected_output = """ATGCAACT
 A: 5 1 0 0 5 5 0 0
 C: 0 0 1 4 2 0 6 1
 G: 1 1 6 3 0 1 0 0
-T: 1 5 0 0 0 1 1 6"""
+T: 1 5 0 0 0 1 1 6\n"""
 
 
 def test_CONSSolution():

@@ -3,7 +3,7 @@ from shared.testing_utils import solution_output
 
 
 test_input = "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC"
-expected_output = "20 12 17 21"
+expected_output = "20 12 17 21\n"
 
 
 def test_DNASolution():

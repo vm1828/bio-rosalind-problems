@@ -2,7 +2,7 @@ from problems.IPRB.IPRB import IPRBSolution
 from shared.testing_utils import solution_output
 
 test_input = "2 2 2"
-expected_output = "0.78333"
+expected_output = "0.78333\n"
 
 
 def test_IPRBSolution():

@@ -4,7 +4,7 @@ from shared.testing_utils import solution_output
 
 test_input = """GATATATGCATATACTT
 ATAT"""
-expected_output = "2 4 10"
+expected_output = "2 4 10\n"
 
 
 def test_SUBSSolution():

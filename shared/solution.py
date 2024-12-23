@@ -44,6 +44,7 @@ class Solution(ABC):
     def __write_solution_to_file(self):
         with open(self.__output_file, 'w') as f:
             f.write(self._solution)
+            f.write('\n')
 
     @staticmethod
     @abstractmethod
