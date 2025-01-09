@@ -1,7 +1,5 @@
 import os
-import time
-
-from typing import Callable
+import pytest
 from tempfile import TemporaryDirectory
 
 from shared.solution import Solution
@@ -35,6 +33,14 @@ def solution_output(cls: Solution, test_input: str) -> str:
     return actual_output
 
 
+@pytest.fixture
+def compare_in_any_order():
+    """Compares actual and expected outputs, ignoring order."""
+    def _compare(solution_output: str, expected_output: str) -> bool:
+        return set(solution_output.split()) == set(expected_output.split())
+    return _compare
+
+
 # def run_with_tmp_file(func: Callable, s: str) -> Any:
 #     """
 #     Creates tmp file with test input and passes it to the tested function.
@@ -53,34 +59,29 @@ def solution_output(cls: Solution, test_input: str) -> str:
 #     return result
 
 
-def timeit(n=1):
-    """Decorator is used for testing function performance over n executions
-
-    Args:
-        n (int, optional): Number of executions. Defaults to 1.
-    """
-    def decorator(func):
-        def wrapper(*args, **kwargs):
-            total = 0
-            for _ in range(n):
-                start = time.perf_counter()
-                func(*args, **kwargs)
-                end = time.perf_counter()
-                total += (end - start)
-            avg_time = round(total/n, 6)
-            print(
-                f"Average execution time of *{args[0].__name__}* over {n} calls: {avg_time} seconds") if avg_time else None
-            return func(*args, **kwargs)
-        return wrapper
-    return decorator
+# def _timeit(n=1):
+#     def decorator(func):
+#         def wrapper(*args, **kwargs):
+#             total = 0
+#             for _ in range(n):
+#                 start = time.perf_counter()
+#                 result = func(*args, **kwargs)
+#                 end = time.perf_counter()
+#                 total += (end - start)
+#             avg_time = round(total/n, 6)
+#             print(
+#                 f"Average execution time of *{args[0].__name__}* over {n} calls: {avg_time} seconds") if avg_time else None
+#             return result
+#         return wrapper
+#     return decorator
 
 
-@timeit(n=100)
-def assess_performance(func: Callable, test_file: str) -> None:
-    """_summary_
+# @_timeit(n=100)
+# def assess_performance(func: Callable, test_file: str) -> None:
+#     """_summary_
 
-    Args:
-        func (Callable): function to test
-        test_file (str): file with test input
-    """
-    func(test_file)
+#     Args:
+#         func (Callable): function to test
+#         test_file (str): file with test input
+#     """
+#     func(test_file)
