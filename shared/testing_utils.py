@@ -35,9 +35,9 @@ def solution_output(cls: Solution, test_input: str) -> str:
 
 @pytest.fixture
 def compare_in_any_order():
-    """Compares actual and expected outputs, ignoring order."""
-    def _compare(solution_output: str, expected_output: str) -> bool:
-        return set(solution_output.split()) == set(expected_output.split())
+    """Compares actual and expected outputs, ignoring order, with an optional delimiter."""
+    def _compare(solution_output: str, expected_output: str, delimiter: str = None) -> bool:
+        return set(solution_output.split(delimiter)) == set(expected_output.split(delimiter))
     return _compare
 
 
