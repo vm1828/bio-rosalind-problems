@@ -38,5 +38,9 @@ class PERMSolution(Solution):
         return formatted_result
 
 
+# Average execution time of *permutations_itertools* over 1000 calls: 0.001246 seconds
+# Average execution time of *permutations_recursive* over 1000 calls: 0.00809 seconds
+
+
 if __name__ == '__main__':
     PERMSolution()

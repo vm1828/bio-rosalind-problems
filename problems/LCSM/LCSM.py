@@ -61,6 +61,8 @@ class LCSMSolution(Solution):
 #                 return motif
 #     return ''
 
+# # Average execution time of *find_shared_motif_naive* over 1 calls: 2.025249 seconds
+# # Average execution time of *find_longest_shared_motif* over 1 calls: 0.018373 seconds
 
 if __name__ == '__main__':
     LCSMSolution()
