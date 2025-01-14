@@ -1,6 +1,8 @@
 """Finding a Shared Motif"""
 
 import re
+
+from shared.regex_patterns import FASTA_PARSE_PATTERN
 from shared.solution import Solution
 
 
@@ -42,9 +44,8 @@ class LCSMSolution(Solution):
         return longest_motif
 
     def _parse(self) -> list[str]:
-        pattern = re.compile(r'>Rosalind_\d+\s*([ACGT\s]+)')
         with open(self._input_file) as f:
-            seqs = pattern.findall(f.read().replace("\n", ""))
+            seqs = FASTA_PARSE_PATTERN.findall(f.read().replace("\n", ""))
         return seqs
 
     def _solve(self) -> str:
